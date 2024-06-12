@@ -6,6 +6,7 @@ import { PrimaryTextColor } from "../styles/base.style";
 import Keyboard from "./keyboard/keyboard.component";
 import AppBarTop from "./appbar/appbarTop.component";
 import AppBarBottom from "./appbar/appbarBottom.component";
+import { FormattedMessage } from "react-intl";
 
 interface IPrincipalContainer {
   darkMode: boolean;
@@ -24,7 +25,12 @@ const PrincipalContainer = (props: IPrincipalContainer) => {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Typography variant="h4" component="h4">
-            <PrimaryTextColor>Hangman Skeleton Version</PrimaryTextColor>
+            <PrimaryTextColor>
+              <FormattedMessage
+                id="app_title"
+                defaultMessage="Hangman Skeleton Version"
+              />
+            </PrimaryTextColor>
           </Typography>
         </Grid>
         <Grid item xs={12}>
@@ -36,6 +42,7 @@ const PrincipalContainer = (props: IPrincipalContainer) => {
             playerStart={playerStart}
           />
         </Grid>
+
         <Grid item xs={12}>
           <Keyboard
             nbFault={nbFault}
@@ -44,10 +51,11 @@ const PrincipalContainer = (props: IPrincipalContainer) => {
             setLettersGuest={setLettersGuest}
             setPlayerStart={setPlayerStart}
             word={word}
+            isDisabled={!playerStart}
           />
         </Grid>
       </Grid>
-      <AppBarBottom />
+      <AppBarBottom playerStart={playerStart} setPlayerStart={setPlayerStart} />
     </PrincipalContainerStyle>
   );
 };

@@ -4,6 +4,8 @@ import {
   ImgHangmanLightMode,
 } from "../../styles/hangman.style";
 import HangmanImgSources from "./hangmanImgSources.component";
+import { useContext } from "react";
+import { LanguageContext } from "../../contexts/internationalization.context";
 
 interface IHangmanImageProps {
   darkMode: boolean;
@@ -11,6 +13,8 @@ interface IHangmanImageProps {
 }
 
 const HangmanImage = (props: IHangmanImageProps) => {
+  const { accessibility } = useContext(LanguageContext);
+
   const hangmansDarkMode: string[] = [
     "./hangman/zero-fault.png",
     "./hangman/dark_mode/first-fault.png",
@@ -33,28 +37,19 @@ const HangmanImage = (props: IHangmanImageProps) => {
     "./hangman/light_mode/seven-fault.png",
   ];
 
-  const hangmanAlt: string[] = [
-    "0 fault",
-    "1 fault",
-    "2 faults",
-    "3 faults",
-    "4 faults",
-    "5 faults",
-    "6 faults",
-    "7 faults",
-  ];
-
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
         {props.darkMode ? (
           <ImgHangmanDarkMode
-            alt={hangmanAlt[props.nbFault]}
+            alt={accessibility.alts_hangman_img[props.nbFault]}
+            title={accessibility.title_hangman_img}
             src={hangmansDarkMode[props.nbFault]}
           />
         ) : (
           <ImgHangmanLightMode
-            alt={hangmanAlt[props.nbFault]}
+            alt={accessibility.alts_hangman_img[props.nbFault]}
+            title={accessibility.title_hangman_img}
             src={hangmanLightMode[props.nbFault]}
           />
         )}

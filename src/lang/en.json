@@ -1,0 +1,11 @@
+{
+  "lang_english": "English",
+  "lang_french": "French",
+  "darkmode": "Darkmode",
+  "app_title": "Hangman Skeleton's Version",
+  "button_label_retry": "Retry",
+  "button_label_play": "Play",
+  "title_img_sources": "Images sources:",
+  "title_knot_img": "Knot",
+  "title_skeleton_img": "Skeleton"
+}

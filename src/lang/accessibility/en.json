@@ -1,0 +1,15 @@
+{
+  "aria_label_button_retry": "Retry the game",
+  "aria_label_button_play": "Start the game",
+  "title_hangman_img": "Hangman image",
+  "alts_hangman_img": [
+    "hangman: 0 fault",
+    "hangman: 1 fault",
+    "hangman: 2 faults",
+    "hangman: 3 faults",
+    "hangman: 4 faults",
+    "hangman: 5 faults",
+    "hangman: 6 faults",
+    "hangman: 7 faults"
+  ]
+}

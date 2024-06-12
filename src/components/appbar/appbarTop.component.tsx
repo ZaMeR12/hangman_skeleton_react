@@ -1,7 +1,9 @@
 import { AppBar, Button, Grid, Menu, MenuItem, Toolbar } from "@mui/material";
 import SwitchDarkMode from "../switchDarMode.component";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { PrimaryTextColor } from "../../styles/base.style";
+import { FormattedMessage } from "react-intl";
+import { LanguageContext } from "../../contexts/internationalization.context";
 
 interface IAppBarTopProps {
   darkMode: boolean;
@@ -9,13 +11,23 @@ interface IAppBarTopProps {
 }
 
 const AppBarTop = (props: IAppBarTopProps) => {
+  const { setLanguage } = useContext(LanguageContext);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+  const handleCloseEnglish = () => {
+    setAnchorEl(null);
+    setLanguage(true);
+  };
+  const handleCloseFrench = () => {
+    setAnchorEl(null);
+    setLanguage(false);
   };
   return (
     <AppBar position="fixed" color="primary">
@@ -29,6 +41,7 @@ const AppBarTop = (props: IAppBarTopProps) => {
               aria-expanded={open ? "true" : undefined}
               onClick={handleClick}
               color="inherit"
+              aria-role="button"
             >
               Lang
             </Button>
@@ -40,9 +53,14 @@ const AppBarTop = (props: IAppBarTopProps) => {
               MenuListProps={{
                 "aria-labelledby": "basic-button",
               }}
+              aria-role="menu"
             >
-              <MenuItem onClick={handleClose}>English</MenuItem>
-              <MenuItem onClick={handleClose}>French</MenuItem>
+              <MenuItem onClick={handleCloseEnglish}>
+                <FormattedMessage id="lang_english" defaultMessage="English" />
+              </MenuItem>
+              <MenuItem onClick={handleCloseFrench}>
+                <FormattedMessage id="lang_french" defaultMessage="French" />
+              </MenuItem>
             </Menu>
           </Grid>
           <Grid item xs={11}>

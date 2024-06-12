@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 
-./src/api/api.json
+src/api/api.json

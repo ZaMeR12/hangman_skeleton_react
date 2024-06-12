@@ -1,0 +1,15 @@
+{
+  "aria_label_button_retry": "Recommancer le jeu",
+  "aria_label_button_play": "Commencer le jeu",
+  "title_hangman_img": "Image du pendu",
+  "alts_hangman_img": [
+    "pendu: 0 faute",
+    "pendu: 1 faute",
+    "pendu: 2 fautes",
+    "pendu: 3 fautes",
+    "pendu: 4 fautes",
+    "pendu: 5 fautes",
+    "pendu: 6 fautes",
+    "epndu: 7 fautes"
+  ]
+}

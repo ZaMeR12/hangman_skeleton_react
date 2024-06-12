@@ -1,5 +1,7 @@
 import { FormControlLabel, FormGroup, Switch } from "@mui/material";
-import { PrimaryTextColor } from "../styles/base.style";
+import { LanguageContext } from "../contexts/internationalization.context";
+import { useContext } from "react";
+import { FormattedMessage } from "react-intl";
 
 interface ISwitchDarkModeProps {
   darkMode: boolean;
@@ -21,7 +23,7 @@ const SwitchDarkMode = (props: ISwitchDarkModeProps) => {
             color="secondary"
           />
         }
-        label={"Darkmode"}
+        label={<FormattedMessage id="darkmode" defaultMessage="Darkmode" />}
       />
     </FormGroup>
   );

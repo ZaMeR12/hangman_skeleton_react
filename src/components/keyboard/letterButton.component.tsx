@@ -7,19 +7,23 @@ interface ILetterButtonProps {
   setNbFault(nbFault: number): void;
   lettersGuest: string[];
   setLettersGuest(lettersGuest: string[]): void;
-  setPlayerStart(isStarted: boolean): void;
   word: string;
   letter: string;
+  isDisabled: boolean;
 }
 
 const LetterButton = (props: ILetterButtonProps) => {
-  const [isDisabled, setIsDisabled] = useState<boolean>(false);
+  const [isDisabled, setIsDisabled] = useState<boolean>(props.isDisabled);
 
   useEffect(() => {
     if (props.nbFault >= 7) {
       setIsDisabled(true);
     }
   }, [props.nbFault]);
+
+  useEffect(() => {
+    setIsDisabled(props.isDisabled);
+  }, [props.isDisabled]);
 
   const onClickTry = (event: React.ChangeEvent<HTMLInputElement>) => {
     var letterExist: boolean = false;
@@ -37,7 +41,6 @@ const LetterButton = (props: ILetterButtonProps) => {
       props.setNbFault(props.nbFault + 1);
     }
     setIsDisabled(true);
-    props.setPlayerStart(true);
   };
 
   return (
@@ -45,6 +48,7 @@ const LetterButton = (props: ILetterButtonProps) => {
       variant="contained"
       onClick={onClickTry}
       disabled={isDisabled}
+      aria-role="button"
       style={
         isDisabled ? { backgroundColor: "var(--button-background-color)" } : {}
       }
