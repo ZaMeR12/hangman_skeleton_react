@@ -2,9 +2,10 @@ import { Grid, Typography } from "@mui/material";
 import { useState } from "react";
 import Hangman from "./hangman/hangman.component";
 import { PrincipalContainerStyle } from "../styles/principalContainer.style";
-import SwitchDarkMode from "./switchDarMode.component";
 import { PrimaryTextColor } from "../styles/base.style";
 import Keyboard from "./keyboard/keyboard.component";
+import AppBarTop from "./appbar/appbarTop.component";
+import AppBarBottom from "./appbar/appbarBottom.component";
 
 interface IPrincipalContainer {
   darkMode: boolean;
@@ -19,13 +20,8 @@ const PrincipalContainer = (props: IPrincipalContainer) => {
 
   return (
     <PrincipalContainerStyle>
+      <AppBarTop darkMode={props.darkMode} setDarkMode={props.setDarkMode} />
       <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <SwitchDarkMode
-            darkMode={props.darkMode}
-            setDarkMode={props.setDarkMode}
-          />
-        </Grid>
         <Grid item xs={12}>
           <Typography variant="h4" component="h4">
             <PrimaryTextColor>Hangman Skeleton Version</PrimaryTextColor>
@@ -51,6 +47,7 @@ const PrincipalContainer = (props: IPrincipalContainer) => {
           />
         </Grid>
       </Grid>
+      <AppBarBottom />
     </PrincipalContainerStyle>
   );
 };

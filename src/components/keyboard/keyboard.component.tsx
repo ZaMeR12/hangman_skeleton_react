@@ -12,7 +12,14 @@ interface IKeyboardProps {
 
 const Keyboard = (props: IKeyboardProps) => {
   return (
-    <Grid container spacing={2} style={{ padding: 25 }}>
+    <Grid
+      container
+      spacing={2}
+      justifyContent="center"
+      paddingLeft={1}
+      paddingRight={1}
+      paddingTop={3}
+    >
       <Grid item>
         <LetterButton
           nbFault={props.nbFault}

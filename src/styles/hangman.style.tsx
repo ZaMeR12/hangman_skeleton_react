@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
 export const ImgHangmanDarkMode = styled.img`
-  max-height: 25vh;
-  max-width: 25vw;
+  max-height: 30vh;
+  max-width: 30vw;
   margin: 10px;
   border: 3px double;
   padding: 10px;
@@ -11,8 +11,8 @@ export const ImgHangmanDarkMode = styled.img`
 `;
 
 export const ImgHangmanLightMode = styled.img`
-  max-height: 25vh;
-  max-width: 25vw;
+  max-height: 30vh;
+  max-width: 30vw;
   margin: 10px;
   border: 3px double;
   padding: 10px;

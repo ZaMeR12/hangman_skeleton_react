@@ -21,7 +21,7 @@ const SwitchDarkMode = (props: ISwitchDarkModeProps) => {
             color="secondary"
           />
         }
-        label={<PrimaryTextColor>Darkmode</PrimaryTextColor>}
+        label={"Darkmode"}
       />
     </FormGroup>
   );
