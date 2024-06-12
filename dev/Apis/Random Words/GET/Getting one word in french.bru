@@ -1,0 +1,16 @@
+meta {
+  name: Getting one word in french
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{host}}/word?number=1&lang=fr
+  body: none
+  auth: none
+}
+
+query {
+  number: 1
+  lang: fr
+}
