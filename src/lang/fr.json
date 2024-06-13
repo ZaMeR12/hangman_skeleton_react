@@ -9,5 +9,6 @@
   "title_knot_img": "Noeud",
   "title_skeleton_img": "Squelette",
   "winning_message": "Vous avez gagnez!",
-  "lose_message": "Fin de partie! Le mot était {word}!"
+  "lose_message": "Fin de partie! Le mot était {word}!",
+  "error_word_random_api": "Il y a un problème avec le générateur de mot. S'il vous plait, essayer plus tard. (code: {status})"
 }

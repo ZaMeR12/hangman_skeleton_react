@@ -39,14 +39,22 @@ const AppBarBottom = (props: IAppBarBottomProps) => {
         <Grid container justifyContent="center">
           <Grid item>
             {props.playerStart ? (
-              <Button color="inherit" onClick={onClickRetry}>
+              <Button
+                color="inherit"
+                onClick={onClickRetry}
+                style={{ padding: 20 }}
+              >
                 <FormattedMessage
                   id="button_label_retry"
                   defaultMessage="Retry"
                 />
               </Button>
             ) : (
-              <Button color="inherit" onClick={onClickPlay}>
+              <Button
+                color="inherit"
+                onClick={onClickPlay}
+                style={{ padding: 20 }}
+              >
                 <FormattedMessage
                   id="button_label_play"
                   defaultMessage="Play"

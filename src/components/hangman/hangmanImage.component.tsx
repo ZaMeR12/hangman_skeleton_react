@@ -38,7 +38,7 @@ const HangmanImage = (props: IHangmanImageProps) => {
   ];
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} justifyContent={"center"}>
       <Grid item xs={12}>
         {props.darkMode ? (
           <ImgHangmanDarkMode
@@ -54,11 +54,9 @@ const HangmanImage = (props: IHangmanImageProps) => {
           />
         )}
       </Grid>
-      <Grid item xs={3}></Grid>
-      <Grid item xs={6}>
+      <Grid item>
         <HangmanImgSources />
       </Grid>
-      <Grid item xs={3}></Grid>
     </Grid>
   );
 };

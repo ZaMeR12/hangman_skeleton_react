@@ -9,5 +9,6 @@
   "title_knot_img": "Knot",
   "title_skeleton_img": "Skeleton",
   "winning_message": "You win!",
-  "lose_message": "Game over! The word was {word}!"
+  "lose_message": "Game over! The word was {word}!",
+  "error_word_random_api": "There is a problem with the word generator. Please retry later. (code: {status})"
 }

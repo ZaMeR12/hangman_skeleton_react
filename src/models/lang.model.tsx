@@ -10,6 +10,7 @@ interface ILang {
   title_skeleton_img: string;
   winning_message: string;
   lose_message: string;
+  error_word_random_api: string;
 }
 
 interface ILangAccessibility {

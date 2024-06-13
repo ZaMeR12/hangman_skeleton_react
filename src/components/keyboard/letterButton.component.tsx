@@ -27,6 +27,10 @@ const LetterButton = (props: ILetterButtonProps) => {
     setIsDisabled(props.isDisabled);
   }, [props.isDisabled]);
 
+  useEffect(() => {
+    setIsDisabled(true);
+  }, [props.isWinning]);
+
   const onClickTry = () => {
     var letterExist: boolean = false;
     for (let index = 0; index < word.length; index++) {
@@ -49,7 +53,7 @@ const LetterButton = (props: ILetterButtonProps) => {
     <Button
       variant="contained"
       onClick={onClickTry}
-      disabled={isDisabled || props.isWinning}
+      disabled={isDisabled}
       style={
         isDisabled ? { backgroundColor: "var(--button-background-color)" } : {}
       }

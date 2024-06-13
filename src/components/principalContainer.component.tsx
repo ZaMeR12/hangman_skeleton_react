@@ -1,5 +1,5 @@
 import { Alert, Grid, Typography } from "@mui/material";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Hangman from "./hangman/hangman.component";
 import { PrincipalContainerStyle } from "../styles/principalContainer.style";
 import { PrimaryTextColor } from "../styles/base.style";
@@ -8,6 +8,7 @@ import AppBarTop from "./appbar/appbarTop.component";
 import AppBarBottom from "./appbar/appbarBottom.component";
 import { FormattedMessage } from "react-intl";
 import { ApiContext } from "../contexts/api.context";
+import _ from "lodash";
 
 interface IPrincipalContainer {
   darkMode: boolean;
@@ -24,7 +25,7 @@ const PrincipalContainer = (props: IPrincipalContainer) => {
   return (
     <PrincipalContainerStyle>
       <AppBarTop darkMode={props.darkMode} setDarkMode={props.setDarkMode} />
-      <Grid container spacing={2}>
+      <Grid container spacing={2} justifyContent="center">
         <Grid item xs={12}>
           <Typography variant="h4" component="h4">
             <PrimaryTextColor>
@@ -44,41 +45,53 @@ const PrincipalContainer = (props: IPrincipalContainer) => {
             setIsWinning={setIsWinning}
           />
         </Grid>
-        {nbFault >= 7 ? (
-          <Grid item xs={12}>
-            <Alert variant="filled" severity="error">
-              <FormattedMessage
-                id="lose_message"
-                defaultMessage="Game over!"
-                values={{ word: word }}
-              />
-            </Alert>
+        <Grid container item justifyContent="center" xs={12}>
+          {nbFault >= 7 ? (
+            <Grid item>
+              <Alert
+                variant="filled"
+                severity="warning"
+                style={{ fontWeight: "bold" }}
+              >
+                <FormattedMessage
+                  id="lose_message"
+                  defaultMessage="Game over!"
+                  values={{ word: word }}
+                />
+              </Alert>
+            </Grid>
+          ) : (
+            <></>
+          )}
+          {isWinning ? (
+            <Grid item>
+              <Alert
+                variant="filled"
+                severity="success"
+                style={{ fontWeight: "bold" }}
+              >
+                <FormattedMessage
+                  id="winning_message"
+                  defaultMessage="You win!"
+                />
+              </Alert>
+            </Grid>
+          ) : (
+            <></>
+          )}
+        </Grid>
+        <Grid container item xs={12} justifyContent="center">
+          <Grid item xl={5}>
+            <Keyboard
+              nbFault={nbFault}
+              setNbFault={setNbFault}
+              lettersGuest={lettersGuest}
+              setLettersGuest={setLettersGuest}
+              setPlayerStart={setPlayerStart}
+              isDisabled={!playerStart}
+              isWinning={isWinning}
+            />
           </Grid>
-        ) : (
-          <></>
-        )}
-        {isWinning ? (
-          <Grid item xs={12}>
-            <Alert variant="filled" severity="success">
-              <FormattedMessage
-                id="winning_message"
-                defaultMessage="You win!"
-              />
-            </Alert>
-          </Grid>
-        ) : (
-          <></>
-        )}
-        <Grid item xs={12}>
-          <Keyboard
-            nbFault={nbFault}
-            setNbFault={setNbFault}
-            lettersGuest={lettersGuest}
-            setLettersGuest={setLettersGuest}
-            setPlayerStart={setPlayerStart}
-            isDisabled={!playerStart}
-            isWinning={isWinning}
-          />
         </Grid>
       </Grid>
       <AppBarBottom playerStart={playerStart} setPlayerStart={setPlayerStart} />

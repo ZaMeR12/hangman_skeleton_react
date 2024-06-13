@@ -11,10 +11,10 @@ export default defineConfig({
       devOptions: {
         enabled: true,
       },
-      includeAssets: ["favicon.ico", "logo192.png", "vite.svg"],
+      includeAssets: ["favicon.ico", "logo192.png", "logo512.png"],
       manifest: {
         name: "Hang Skull",
-        short_name: "Hangman",
+        short_name: "HangSkull",
         description: "Hangman with a skull",
         theme_color: "#ffffff",
         icons: [

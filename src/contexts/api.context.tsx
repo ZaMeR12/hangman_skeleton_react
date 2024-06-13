@@ -1,4 +1,5 @@
-import axios from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
+import _ from "lodash";
 import React, { useState } from "react";
 
 const apiRandomWord = axios.create({
@@ -8,6 +9,7 @@ const apiRandomWord = axios.create({
 export type ApiContextType = {
   getEnglishWord: () => void;
   getFrenchWord: () => void;
+  status: number;
   isApiRequestLoad: boolean;
   word: string;
 };
@@ -15,6 +17,7 @@ export type ApiContextType = {
 export const ApiContext = React.createContext<ApiContextType>({
   getEnglishWord: () => {},
   getFrenchWord: () => {},
+  status: 200,
   isApiRequestLoad: false,
   word: "",
 });
@@ -22,13 +25,13 @@ export const ApiContext = React.createContext<ApiContextType>({
 const ApiProvider = (props: any) => {
   const [word, setWord] = useState<string>("");
   const [isApiRequestLoad, setIsApiRequestLoad] = useState<boolean>(false);
-
+  const [status, setStatus] = useState<number>(200);
   /**
    * Getting a random int number
    * @source https://forkful.ai/en/typescript/numbers/generating-random-numbers/
-   * @param min
-   * @param max
-   * @returns
+   * @param min Minimum value
+   * @param max Maximum value
+   * @returns Random int between min and max
    */
   function getRandomInt(min: number, max: number): number {
     min = Math.ceil(min);
@@ -48,29 +51,48 @@ const ApiProvider = (props: any) => {
   };
 
   const getEnglishWord = () => {
-    const lengthWord: number = getRandomInt(5, 12);
-    apiRandomWord.get(`word?number=1&length=${lengthWord}`).then((response) => {
-      const wordTemp: string = removeAccents(response.data[0]);
-      setWord(wordTemp);
-      console.log(wordTemp);
-      setIsApiRequestLoad(true);
-    });
-  };
-  const getFrenchWord = () => {
-    const lengthWord: number = getRandomInt(5, 12);
+    const lengthWord: number = getRandomInt(12, 12);
     apiRandomWord
-      .get(`word?number=1&lang=fr&length=${lengthWord}`)
-      .then((response) => {
+      .get(`word?number=1&length=${lengthWord}`)
+      .then((response: AxiosResponse) => {
         const wordTemp: string = removeAccents(response.data[0]);
         setWord(wordTemp);
+        setStatus(response.status);
         console.log(wordTemp);
         setIsApiRequestLoad(true);
+      })
+      .catch((reason: AxiosError) => {
+        if (_.isUndefined(reason.response?.status)) {
+          setStatus(999);
+        } else {
+          setStatus(reason.response.status);
+        }
+      });
+  };
+  const getFrenchWord = () => {
+    const lengthWord: number = getRandomInt(12, 12);
+    apiRandomWord
+      .get(`word?number=1&lang=fr&length=${lengthWord}`)
+      .then((response: AxiosResponse) => {
+        const wordTemp: string = removeAccents(response.data[0]);
+        setWord(wordTemp);
+        setStatus(response.status);
+        console.log(wordTemp);
+        setIsApiRequestLoad(true);
+      })
+      .catch((reason: AxiosError) => {
+        if (_.isUndefined(reason.response?.status)) {
+          setStatus(999);
+        } else {
+          setStatus(reason.response.status);
+        }
       });
   };
 
   const values = {
     getEnglishWord: getEnglishWord,
     getFrenchWord: getFrenchWord,
+    status: status,
     isApiRequestLoad: isApiRequestLoad,
     word,
   };
