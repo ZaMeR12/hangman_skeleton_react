@@ -1,9 +1,8 @@
 import axios from "axios";
-import { randomWord } from "../api/api.json";
 import React, { useState } from "react";
 
 const apiRandomWord = axios.create({
-  baseURL: randomWord,
+  baseURL: "https://random-word-api.herokuapp.com/",
 });
 
 export type ApiContextType = {
