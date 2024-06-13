@@ -51,7 +51,7 @@ const ApiProvider = (props: any) => {
   };
 
   const getEnglishWord = () => {
-    const lengthWord: number = getRandomInt(12, 12);
+    const lengthWord: number = getRandomInt(5, 12);
     apiRandomWord
       .get(`word?number=1&length=${lengthWord}`)
       .then((response: AxiosResponse) => {
@@ -70,7 +70,7 @@ const ApiProvider = (props: any) => {
       });
   };
   const getFrenchWord = () => {
-    const lengthWord: number = getRandomInt(12, 12);
+    const lengthWord: number = getRandomInt(5, 12);
     apiRandomWord
       .get(`word?number=1&lang=fr&length=${lengthWord}`)
       .then((response: AxiosResponse) => {

@@ -58,6 +58,8 @@ The project store locally the dark theme preference and the language preference.
 
 The project use an API to generate the words both in english and french.
 
+The length of words are between 5 and 12 letters.
+
 **Documentation source**: https://random-word-api.herokuapp.com/home
 
 ### Hangman images
