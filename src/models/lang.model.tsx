@@ -8,6 +8,8 @@ interface ILang {
   title_img_sources: string;
   title_knot_img: string;
   title_skeleton_img: string;
+  winning_message: string;
+  lose_message: string;
 }
 
 interface ILangAccessibility {

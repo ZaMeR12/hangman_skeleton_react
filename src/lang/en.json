@@ -7,5 +7,7 @@
   "button_label_play": "Play",
   "title_img_sources": "Images sources:",
   "title_knot_img": "Knot",
-  "title_skeleton_img": "Skeleton"
+  "title_skeleton_img": "Skeleton",
+  "winning_message": "You win!",
+  "lose_message": "Game over! The word was {word}!"
 }

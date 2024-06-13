@@ -7,5 +7,7 @@
   "button_label_play": "Jouer",
   "title_img_sources": "Sources des images:",
   "title_knot_img": "Noeud",
-  "title_skeleton_img": "Squelette"
+  "title_skeleton_img": "Squelette",
+  "winning_message": "Vous avez gagnez!",
+  "lose_message": "Fin de partie! Le mot était {word}!"
 }

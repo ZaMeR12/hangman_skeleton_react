@@ -1,19 +1,21 @@
 import { Button } from "@mui/material";
 import { produce } from "immer";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ApiContext } from "../../contexts/api.context";
 
 interface ILetterButtonProps {
   nbFault: number;
   setNbFault(nbFault: number): void;
   lettersGuest: string[];
   setLettersGuest(lettersGuest: string[]): void;
-  word: string;
   letter: string;
   isDisabled: boolean;
+  isWinning: boolean;
 }
 
 const LetterButton = (props: ILetterButtonProps) => {
   const [isDisabled, setIsDisabled] = useState<boolean>(props.isDisabled);
+  const { word } = useContext(ApiContext);
 
   useEffect(() => {
     if (props.nbFault >= 7) {
@@ -27,8 +29,8 @@ const LetterButton = (props: ILetterButtonProps) => {
 
   const onClickTry = (event: React.ChangeEvent<HTMLInputElement>) => {
     var letterExist: boolean = false;
-    for (let index = 0; index < props.word.length; index++) {
-      if (props.word.charAt(index) == props.letter) {
+    for (let index = 0; index < word.length; index++) {
+      if (word.charAt(index) == props.letter) {
         props.setLettersGuest(
           produce(props.lettersGuest, (draft) => {
             draft.push(props.letter);
@@ -47,7 +49,7 @@ const LetterButton = (props: ILetterButtonProps) => {
     <Button
       variant="contained"
       onClick={onClickTry}
-      disabled={isDisabled}
+      disabled={isDisabled || props.isWinning}
       aria-role="button"
       style={
         isDisabled ? { backgroundColor: "var(--button-background-color)" } : {}

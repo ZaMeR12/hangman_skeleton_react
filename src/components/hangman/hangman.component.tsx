@@ -1,23 +1,25 @@
-import { Card, Grid, Link, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { Card, CircularProgress, Grid, Link, Typography } from "@mui/material";
+import { useContext, useEffect, useState } from "react";
 import { produce } from "immer";
 import _ from "lodash";
 import { PrimaryTextColor } from "../../styles/base.style";
 import HangmanImage from "./hangmanImage.component";
+import { ApiContext } from "../../contexts/api.context";
 
 interface IHangmanProps {
   nbFault: number;
   darkMode: boolean;
   lettersGuest: string[];
-  word: string;
   playerStart: boolean;
+  setIsWinning(isWinning: boolean): void;
 }
 
 const Hangman = (props: IHangmanProps) => {
   const [wordShow, setwordShow] = useState<string[]>([]);
-
+  const { word } = useContext(ApiContext);
+  const { isApiRequestLoad } = useContext(ApiContext);
   useEffect(() => {
-    const wordShowTemp: string[] = new Array<string>(props.word.length);
+    const wordShowTemp: string[] = new Array<string>(word.length);
 
     setwordShow(
       produce(wordShowTemp, (draft) => {
@@ -26,19 +28,19 @@ const Hangman = (props: IHangmanProps) => {
         }
       })
     );
-  }, [props.word]);
+  }, [word]);
 
   useEffect(() => {
     if (props.playerStart) {
       setwordShow(
         produce(wordShow, (draft) => {
-          for (let i = 0; i < props.word.length; i++) {
+          for (let i = 0; i < word.length; i++) {
             for (let j = 0; j < props.lettersGuest.length; j++) {
               if (
                 draft[i] == " _ " &&
-                props.lettersGuest[j] == props.word.charAt(i)
+                props.lettersGuest[j] == word.charAt(i)
               ) {
-                draft[i] = " " + props.word.charAt(i) + " ";
+                draft[i] = " " + word.charAt(i) + " ";
               }
             }
           }
@@ -47,31 +49,37 @@ const Hangman = (props: IHangmanProps) => {
     }
   }, [props.lettersGuest]);
 
+  useEffect(() => {
+    var wordValidate: boolean = true;
+    if (_.isEmpty(wordShow)) {
+      wordValidate = false;
+    }
+    for (let index = 0; index < wordShow.length; index++) {
+      if (wordShow[index] == " _ ") {
+        wordValidate = false;
+      }
+    }
+    if (wordValidate) {
+      props.setIsWinning(true);
+    }
+  }, [wordShow]);
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <HangmanImage darkMode={props.darkMode} nbFault={props.nbFault} />
       </Grid>
       <Grid item xs={12}>
-        <Typography variant="h4" component="h4">
-          <PrimaryTextColor>{wordShow}</PrimaryTextColor>
-        </Typography>
+        {isApiRequestLoad ? (
+          <Typography variant="h4" component="h4">
+            <PrimaryTextColor>{wordShow}</PrimaryTextColor>
+          </Typography>
+        ) : (
+          <CircularProgress color="secondary" />
+        )}
       </Grid>
     </Grid>
   );
-
-  /**
-   * Be able to remove accents from a string.(inspired)
-   *
-   * @source https://www.30secondsofcode.org/js/s/remove-accents/
-   * @param {string} text Text to remove accents
-   * @return {string} Return the modified string witjout accents
-   */
-  const removeAccents = (text: string): string => {
-    return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  };
-
-  const editAnswer = () => {};
 };
 
 export default Hangman;

@@ -8,11 +8,14 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { CssBaseline } from "@mui/material";
 import LanguageProvider from "./contexts/internationalization.context.tsx";
+import ApiProvider from "./contexts/api.context.tsx";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <CssBaseline />
     <LanguageProvider>
-      <App />
+      <ApiProvider>
+        <App />
+      </ApiProvider>
     </LanguageProvider>
   </React.StrictMode>
 );

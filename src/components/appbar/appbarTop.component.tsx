@@ -24,10 +24,12 @@ const AppBarTop = (props: IAppBarTopProps) => {
   const handleCloseEnglish = () => {
     setAnchorEl(null);
     setLanguage(true);
+    window.location.reload();
   };
   const handleCloseFrench = () => {
     setAnchorEl(null);
     setLanguage(false);
+    window.location.reload();
   };
   return (
     <AppBar position="fixed" color="primary">

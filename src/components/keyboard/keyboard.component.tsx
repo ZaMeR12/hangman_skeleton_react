@@ -1,5 +1,7 @@
 import { Grid } from "@mui/material";
 import LetterButton from "./letterButton.component";
+import { useContext } from "react";
+import { ApiContext } from "../../contexts/api.context";
 
 interface IKeyboardProps {
   nbFault: number;
@@ -7,8 +9,8 @@ interface IKeyboardProps {
   lettersGuest: string[];
   setLettersGuest(lettersGuest: string[]): void;
   setPlayerStart(isStarted: boolean): void;
-  word: string;
   isDisabled: boolean;
+  isWinning: boolean;
 }
 
 const Keyboard = (props: IKeyboardProps) => {
@@ -27,9 +29,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"a"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -38,9 +40,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"b"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -49,9 +51,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"c"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -60,9 +62,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"d"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -71,9 +73,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"e"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -82,9 +84,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"f"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -93,9 +95,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"g"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -104,9 +106,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"h"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -115,9 +117,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"i"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -126,9 +128,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"j"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -137,9 +139,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"k"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -148,9 +150,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"l"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -159,9 +161,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"m"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -170,9 +172,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"n"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -181,9 +183,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"o"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -192,9 +194,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"p"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -203,9 +205,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"q"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -214,9 +216,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"r"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -225,9 +227,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"s"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -236,9 +238,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"t"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -247,9 +249,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"u"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -258,9 +260,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"v"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -269,9 +271,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"w"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -280,9 +282,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"x"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -291,9 +293,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"y"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
       <Grid item>
@@ -302,9 +304,9 @@ const Keyboard = (props: IKeyboardProps) => {
           setNbFault={props.setNbFault}
           lettersGuest={props.lettersGuest}
           setLettersGuest={props.setLettersGuest}
-          word={props.word}
           letter={"z"}
           isDisabled={props.isDisabled}
+          isWinning={props.isWinning}
         />
       </Grid>
     </Grid>
