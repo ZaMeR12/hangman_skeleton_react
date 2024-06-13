@@ -1,7 +1,5 @@
 import { Grid } from "@mui/material";
 import LetterButton from "./letterButton.component";
-import { useContext } from "react";
-import { ApiContext } from "../../contexts/api.context";
 
 interface IKeyboardProps {
   nbFault: number;

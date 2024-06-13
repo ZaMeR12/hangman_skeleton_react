@@ -1,7 +1,6 @@
 import { AppBar, Button, Grid, Menu, MenuItem, Toolbar } from "@mui/material";
 import SwitchDarkMode from "../switchDarMode.component";
 import { useContext, useState } from "react";
-import { PrimaryTextColor } from "../../styles/base.style";
 import { FormattedMessage } from "react-intl";
 import { LanguageContext } from "../../contexts/internationalization.context";
 
@@ -43,7 +42,6 @@ const AppBarTop = (props: IAppBarTopProps) => {
               aria-expanded={open ? "true" : undefined}
               onClick={handleClick}
               color="inherit"
-              aria-role="button"
             >
               Lang
             </Button>

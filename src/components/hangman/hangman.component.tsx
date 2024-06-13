@@ -1,4 +1,4 @@
-import { Card, CircularProgress, Grid, Link, Typography } from "@mui/material";
+import { CircularProgress, Grid, Typography } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { produce } from "immer";
 import _ from "lodash";
@@ -75,7 +75,11 @@ const Hangman = (props: IHangmanProps) => {
             <PrimaryTextColor>{wordShow}</PrimaryTextColor>
           </Typography>
         ) : (
-          <CircularProgress color="secondary" />
+          <CircularProgress
+            color="secondary"
+            role="progressbar"
+            title="Progressbar to load a word"
+          />
         )}
       </Grid>
     </Grid>

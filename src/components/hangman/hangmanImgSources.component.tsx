@@ -2,9 +2,7 @@ import { Card, Grid, Link, Typography } from "@mui/material";
 import { LinkColor, PrimaryTextColor } from "../../styles/base.style";
 import { FormattedMessage } from "react-intl";
 
-interface IHangmanImgSourcesProps {}
-
-const HangmanImgSources = (props: IHangmanImgSourcesProps) => {
+const HangmanImgSources = () => {
   return (
     <Card style={{ backgroundColor: "var(--foreground-color)" }}>
       <Grid container>

@@ -1,4 +1,4 @@
-import axios, { AxiosInstance } from "axios";
+import axios from "axios";
 import { randomWord } from "../api/api.json";
 import React, { useState } from "react";
 

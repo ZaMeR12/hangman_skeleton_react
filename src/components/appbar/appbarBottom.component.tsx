@@ -15,11 +15,11 @@ const AppBarBottom = (props: IAppBarBottomProps) => {
   const { getEnglishWord, getFrenchWord, isApiRequestLoad } =
     useContext(ApiContext);
 
-  const onClickRetry = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onClickRetry = () => {
     window.location.reload();
   };
 
-  const onClickPlay = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onClickPlay = () => {
     if (locale == "en") {
       getEnglishWord();
     } else if (locale == "fr") {
@@ -39,14 +39,14 @@ const AppBarBottom = (props: IAppBarBottomProps) => {
         <Grid container justifyContent="center">
           <Grid item>
             {props.playerStart ? (
-              <Button color="inherit" aria-role="button" onClick={onClickRetry}>
+              <Button color="inherit" onClick={onClickRetry}>
                 <FormattedMessage
                   id="button_label_retry"
                   defaultMessage="Retry"
                 />
               </Button>
             ) : (
-              <Button color="inherit" aria-role="button" onClick={onClickPlay}>
+              <Button color="inherit" onClick={onClickPlay}>
                 <FormattedMessage
                   id="button_label_play"
                   defaultMessage="Play"

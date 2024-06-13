@@ -27,7 +27,7 @@ const LetterButton = (props: ILetterButtonProps) => {
     setIsDisabled(props.isDisabled);
   }, [props.isDisabled]);
 
-  const onClickTry = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onClickTry = () => {
     var letterExist: boolean = false;
     for (let index = 0; index < word.length; index++) {
       if (word.charAt(index) == props.letter) {
@@ -50,7 +50,6 @@ const LetterButton = (props: ILetterButtonProps) => {
       variant="contained"
       onClick={onClickTry}
       disabled={isDisabled || props.isWinning}
-      aria-role="button"
       style={
         isDisabled ? { backgroundColor: "var(--button-background-color)" } : {}
       }

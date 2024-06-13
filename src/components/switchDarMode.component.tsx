@@ -1,6 +1,4 @@
 import { FormControlLabel, FormGroup, Switch } from "@mui/material";
-import { LanguageContext } from "../contexts/internationalization.context";
-import { useContext } from "react";
 import { FormattedMessage } from "react-intl";
 
 interface ISwitchDarkModeProps {
@@ -9,7 +7,7 @@ interface ISwitchDarkModeProps {
 }
 
 const SwitchDarkMode = (props: ISwitchDarkModeProps) => {
-  const onChangeDarkMode = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeDarkMode = () => {
     props.setDarkMode(!props.darkMode);
   };
 
