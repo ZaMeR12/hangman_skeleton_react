@@ -1,5 +1,5 @@
 import { Alert, Grid, Typography } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import Hangman from "./hangman/hangman.component";
 import { PrincipalContainerStyle } from "../styles/principalContainer.style";
 import { PrimaryTextColor } from "../styles/base.style";
