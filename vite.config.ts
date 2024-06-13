@@ -15,7 +15,7 @@ export default defineConfig({
       manifest: {
         name: "Hang Skull",
         short_name: "HangSkull",
-        description: "Hangman with a skull",
+        description: "Hangman with a skeleton",
         theme_color: "#ffffff",
         icons: [
           {
