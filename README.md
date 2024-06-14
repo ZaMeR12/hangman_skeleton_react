@@ -7,6 +7,9 @@
   - [Template: React + TypeScript + Vite](#template-react--typescript--vite)
     - [Resume](#resume)
       - [Demo](#demo)
+      - [Lighthouse test](#lighthouse-test)
+        - [Mobile](#mobile)
+        - [Desktop](#desktop)
     - [Requirements](#requirements)
     - [Run in development](#run-in-development)
     - [Build the project](#build-the-project)
@@ -26,6 +29,16 @@ This is a React Project in Typescript to play a hangman game with a skeleton as 
 #### Demo
 
 [Click here](https://hangman.zamer12.com/) to see the project live in your browser.
+
+#### Lighthouse test
+
+##### Mobile
+
+![](https://i.imgur.com/4jBZVDh.png)
+
+##### Desktop
+
+![](https://i.imgur.com/IC10pNl.png)
 
 ### Requirements
 
