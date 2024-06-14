@@ -11,7 +11,7 @@ export default defineConfig({
       devOptions: {
         enabled: true,
       },
-      includeAssets: ["favicon.ico", "logo192.png", "logo512.png"],
+      includeAssets: ["favicon.ico", "icon-192.png", "icon-512.png"],
       manifest: {
         name: "Hang Skull",
         short_name: "HangSkull",
@@ -19,13 +19,13 @@ export default defineConfig({
         theme_color: "#ffffff",
         icons: [
           {
-            src: "logo192.png",
+            src: "icon-192.png",
             sizes: "192x192",
             type: "image/png",
             purpose: "maskable",
           },
           {
-            src: "logo512.png",
+            src: "icon-512.png",
             sizes: "512x512",
             type: "image/png",
           },

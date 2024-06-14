@@ -1,6 +1,11 @@
 import { Grid } from "@mui/material";
 import LetterButton from "./letterButton.component";
 
+/**
+ * Interface of Keyboard component's props.
+ *
+ * @interface IKeyboardProps
+ */
 interface IKeyboardProps {
   nbFault: number;
   setNbFault(nbFault: number): void;
@@ -11,7 +16,43 @@ interface IKeyboardProps {
   isWinning: boolean;
 }
 
-const Keyboard = (props: IKeyboardProps) => {
+/**
+ * React component to manager the keyboard to play the game.
+ *
+ * @param {IKeyboardProps} props Component's props.
+ * @return {JSX.Element} React component.
+ */
+const Keyboard = (props: IKeyboardProps): JSX.Element => {
+  // List of letters available.
+  const letters: string[] = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+  ];
+
   return (
     <Grid
       container
@@ -21,292 +62,20 @@ const Keyboard = (props: IKeyboardProps) => {
       paddingRight={1}
       paddingTop={3}
     >
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"a"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"b"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"c"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"d"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"e"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"f"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"g"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"h"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"i"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"j"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"k"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"l"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"m"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"n"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"o"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"p"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"q"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"r"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"s"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"t"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"u"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"v"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"w"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"x"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"y"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
-      <Grid item>
-        <LetterButton
-          nbFault={props.nbFault}
-          setNbFault={props.setNbFault}
-          lettersGuest={props.lettersGuest}
-          setLettersGuest={props.setLettersGuest}
-          letter={"z"}
-          isDisabled={props.isDisabled}
-          isWinning={props.isWinning}
-        />
-      </Grid>
+      {/* Generate buttons of the keyboard */}
+      {letters.map((letter) => (
+        <Grid item key={`button letter ${letter}`}>
+          <LetterButton
+            nbFault={props.nbFault}
+            setNbFault={props.setNbFault}
+            lettersGuest={props.lettersGuest}
+            setLettersGuest={props.setLettersGuest}
+            letter={letter}
+            isDisabled={props.isDisabled}
+            isWinning={props.isWinning}
+          />
+        </Grid>
+      ))}
     </Grid>
   );
 };

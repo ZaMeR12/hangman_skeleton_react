@@ -10,12 +10,23 @@ import { FormattedMessage } from "react-intl";
 import { ApiContext } from "../contexts/api.context";
 import _ from "lodash";
 
+/**
+ * Interface of PrincipalContainer component's props.
+ *
+ * @interface IPrincipalContainer
+ */
 interface IPrincipalContainer {
   darkMode: boolean;
   setDarkMode(theme: boolean): void;
 }
 
-const PrincipalContainer = (props: IPrincipalContainer) => {
+/**
+ * React component that act as main container of the application.
+ *
+ * @param {IPrincipalContainer} props Component's props.
+ * @return {JSX.Element} React component.
+ */
+const PrincipalContainer = (props: IPrincipalContainer): JSX.Element => {
   const { word } = useContext(ApiContext);
   const [nbFault, setNbFault] = useState<number>(0);
   const [lettersGuest, setLettersGuest] = useState<string[]>([]);

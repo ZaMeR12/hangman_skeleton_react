@@ -2,7 +2,7 @@
 
 ## Table of content
 
-- [hangman_skeleton_react](#hangman_skeleton_react)
+- [hangman\_skeleton\_react](#hangman_skeleton_react)
   - [Table of content](#table-of-content)
   - [Template: React + TypeScript + Vite](#template-react--typescript--vite)
     - [Resume](#resume)
@@ -34,34 +34,39 @@ This is a React Project in Typescript to play a hangman game with a skeleton as 
 
 ##### Mobile
 
-![](https://i.imgur.com/4jBZVDh.png)
+![](https://i.imgur.com/YirP7my.png)
 
 ##### Desktop
 
-![](https://i.imgur.com/IC10pNl.png)
+![](https://i.imgur.com/kuJjUfW.png)
 
 ### Requirements
 
 1. Node.js
+
 2. Git
 
 ### Run in development
 
 ```shell
+
 npm run dev
+
 ```
 
 ### Build the project
 
 ```shell
+
 npm run build
+
 ```
 
 Take the files in the dist folder the command generated and host them in your server.
 
 ### PWA
 
-This project is PWA. So you can use it as "application" in your mobile's home page.
+This project is a PWA. So you can use it as "application" in your mobile and/or computer desktop.
 
 ### Local storage
 
@@ -77,7 +82,7 @@ The length of words are between 5 and 12 letters.
 
 ### Hangman images
 
-| Images   | URL                                                                           |
-| -------- | ----------------------------------------------------------------------------- |
-| Knot     | https://pixabay.com/fr/vectors/nouer-semparant-attelage-%C3%A9pissure-145493/ |
-| Skeleton | https://pixabay.com/fr/vectors/nouer-semparant-attelage-%C3%A9pissure-145493/ |
+| Image     | URL                                                                             |
+| :-------- | :------------------------------------------------------------------------------ |
+| Knot      | https://pixabay.com/fr/vectors/nouer-semparant-attelage-%C3%A9pissure-145493/   |
+| Skeleton  | https://pixabay.com/fr/vectors/squelette-halloween-sorci%C3%A8re-corps-151170/  |

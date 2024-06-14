@@ -7,14 +7,26 @@ import HangmanImgSources from "./hangmanImgSources.component";
 import { useContext } from "react";
 import { LanguageContext } from "../../contexts/internationalization.context";
 
+/**
+ * Interface of the HangmanImage component's props.
+ *
+ * @interface IHangmanImageProps
+ */
 interface IHangmanImageProps {
   darkMode: boolean;
   nbFault: number;
 }
 
-const HangmanImage = (props: IHangmanImageProps) => {
+/**
+ * React component to manage the image of the hangman.
+ *
+ * @param {IHangmanImageProps} props Component's props.
+ * @return {JSX.Element} React component.
+ */
+const HangmanImage = (props: IHangmanImageProps): JSX.Element => {
   const { accessibility } = useContext(LanguageContext);
 
+  // List of the hangman's images for drakmode.
   const hangmansDarkMode: string[] = [
     "./hangman/zero-fault.png",
     "./hangman/dark_mode/first-fault.png",
@@ -26,6 +38,7 @@ const HangmanImage = (props: IHangmanImageProps) => {
     "./hangman/dark_mode/seven-fault.png",
   ];
 
+  // List of the hangman's images for lightmode.
   const hangmanLightMode: string[] = [
     "./hangman/zero-fault.png",
     "./hangman/light_mode/first-fault.png",

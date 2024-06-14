@@ -4,21 +4,40 @@ import { FormattedMessage } from "react-intl";
 import { LanguageContext } from "../../contexts/internationalization.context";
 import { ApiContext } from "../../contexts/api.context";
 
+/**
+ * Props interface for the AppBarBottom component.
+ *
+ * @interface IAppBarBottomProps
+ */
 interface IAppBarBottomProps {
   playerStart: boolean;
   setPlayerStart(started: boolean): void;
 }
 
-const AppBarBottom = (props: IAppBarBottomProps) => {
+/**
+ * React component for the appbar at the bottom of the application.
+ *
+ * @param {IAppBarBottomProps} props Component's props.
+ * @return {JSX.Element} React component.
+ */
+const AppBarBottom = (props: IAppBarBottomProps): JSX.Element => {
   const { locale } = useContext(LanguageContext);
 
   const { getEnglishWord, getFrenchWord, isApiRequestLoad } =
     useContext(ApiContext);
 
+  /**
+   * Reload the application when a button is clicked.
+   *
+   */
   const onClickRetry = () => {
     window.location.reload();
   };
 
+  /**
+   * Call the API that generate the word to start the game.
+   *
+   */
   const onClickPlay = () => {
     if (locale == "en") {
       getEnglishWord();

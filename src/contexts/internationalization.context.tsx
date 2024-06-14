@@ -6,37 +6,38 @@ import FrenchAccessibility from "../lang/accessibility/fr.json";
 import EnglishAccessibility from "../lang/accessibility/en.json";
 import useLocalStorage from "use-local-storage";
 
+/**
+ * Type for the context of internationalization.
+ */
 export type LanguageContextType = {
   locale: string;
   messages: ILang;
   accessibility: ILangAccessibility;
-  setLanguage: (choix: boolean) => void;
+  setLanguage: (choice: boolean) => void;
 };
 
-export const LanguageContext = React.createContext<LanguageContextType>({
-  locale: "en",
-  messages: English,
-  accessibility: EnglishAccessibility,
-  setLanguage: (_choix: boolean) => {},
-});
+/**
+ * Context for internationalization.
+ */
+export const LanguageContext: React.Context<LanguageContextType> =
+  React.createContext<LanguageContextType>({
+    locale: "en",
+    messages: English,
+    accessibility: EnglishAccessibility,
+    setLanguage: (_choix: boolean) => {},
+  });
 
 /**
  * Provider that manage internationalization.
  *
  * @export
- * @param {any} props props of the provider
- * @return {*}
+ * @param {any} props Provider's props.
+ * @return {JSX.Element} Provider.
  */
-export default function LanguageProvider(props: any) {
+export default function LanguageProvider(props: any): JSX.Element {
   const [locale, setlocale] = useLocalStorage("locale", "en");
   const [messages, setmessages] = useState(English);
   const [accessibility, setAccessibility] = useState(EnglishAccessibility);
-  const values = {
-    locale,
-    messages,
-    accessibility,
-    setLanguage: setLanguage,
-  };
 
   useEffect(() => {
     if (locale == "en") {
@@ -46,8 +47,13 @@ export default function LanguageProvider(props: any) {
     }
   }, []);
 
-  function setLanguage(choix: boolean) {
-    if (choix) {
+  /**
+   * Manage the language to display to the player.
+   *
+   * @param {boolean} choice True if it's english, otherwise it's french.
+   */
+  const setLanguage = (choice: boolean) => {
+    if (choice) {
       setlocale("en");
       setmessages(English);
       setAccessibility(EnglishAccessibility);
@@ -56,7 +62,15 @@ export default function LanguageProvider(props: any) {
       setmessages(French);
       setAccessibility(FrenchAccessibility);
     }
-  }
+  };
+
+  const values = {
+    locale,
+    messages,
+    accessibility,
+    setLanguage: setLanguage,
+  };
+
   return (
     <LanguageContext.Provider value={values}>
       <IntlProvider locale={locale} messages={messages}>

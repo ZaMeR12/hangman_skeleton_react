@@ -7,6 +7,7 @@ const App = () => {
     "(prefers-color-scheme: dark)"
   ).matches;
   const [darkMode, setDarkMode] = useLocalStorage("darkMode", preferenceTheme);
+
   return (
     <div className="App" data-theme={darkMode ? "dark" : "light"}>
       <PrincipalContainer darkMode={darkMode} setDarkMode={setDarkMode} />

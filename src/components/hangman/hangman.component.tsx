@@ -7,6 +7,11 @@ import HangmanImage from "./hangmanImage.component";
 import { ApiContext } from "../../contexts/api.context";
 import { FormattedMessage } from "react-intl";
 
+/**
+ * Interface of Hangman component's props.
+ *
+ * @interface IHangmanProps
+ */
 interface IHangmanProps {
   nbFault: number;
   darkMode: boolean;
@@ -15,13 +20,20 @@ interface IHangmanProps {
   setIsWinning(isWinning: boolean): void;
 }
 
-const Hangman = (props: IHangmanProps) => {
+/**
+ * React component to manage the hangman.
+ *
+ * @param {IHangmanProps} props Component's props.
+ * @return {JSX.Element}  React component.
+ */
+const Hangman = (props: IHangmanProps): JSX.Element => {
   const [wordShow, setwordShow] = useState<string[]>([]);
   const { word, status, isApiRequestLoad } = useContext(ApiContext);
 
   useEffect(() => {
     const wordShowTemp: string[] = new Array<string>(word.length);
 
+    // Initialize the display of the word to hide it.
     setwordShow(
       produce(wordShowTemp, (draft) => {
         for (let index = 0; index < draft.length; index++) {
@@ -32,7 +44,10 @@ const Hangman = (props: IHangmanProps) => {
   }, [word]);
 
   useEffect(() => {
+    // Verify if the game is stated.
     if (props.playerStart) {
+      // Verify and update the display of the word to guest
+      // if a new letter correspond to this word.
       setwordShow(
         produce(wordShow, (draft) => {
           for (let i = 0; i < word.length; i++) {
@@ -51,6 +66,7 @@ const Hangman = (props: IHangmanProps) => {
   }, [props.lettersGuest]);
 
   useEffect(() => {
+    // Verify if the word that is guested if fully know by the player.
     var wordValidate: boolean = true;
     if (_.isEmpty(wordShow)) {
       wordValidate = false;

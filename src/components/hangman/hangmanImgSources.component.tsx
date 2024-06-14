@@ -3,7 +3,12 @@ import { LinkColor, PrimaryTextColor } from "../../styles/base.style";
 import { FormattedMessage } from "react-intl";
 import React from "react";
 
-const HangmanImgSources = () => {
+/**
+ * React component to display the sources of the hangman's images.
+ *
+ * @return {JSX.Element} React Component.
+ */
+const HangmanImgSources = (): JSX.Element => {
   return (
     <Card style={{ backgroundColor: "var(--foreground-color)" }}>
       <Grid container justifyContent={"center"}>
